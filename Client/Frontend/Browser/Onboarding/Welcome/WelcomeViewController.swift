@@ -51,12 +51,12 @@ class WelcomeViewController: UIViewController {
   }
 
   private let backgroundImageView = UIImageView().then {
-    $0.image = #imageLiteral(resourceName: "welcome-view-background")
+    $0.image = UIImage(named: "welcome-view-background", in: .module, compatibleWith: nil)!
     $0.contentMode = .scaleAspectFill
   }
 
   private let topImageView = UIImageView().then {
-    $0.image = #imageLiteral(resourceName: "welcome-view-top-image")
+    $0.image = UIImage(named: "welcome-view-top-image", in: .module, compatibleWith: nil)!
     $0.contentMode = .scaleAspectFill
     $0.setContentHuggingPriority(.required, for: .vertical)
     $0.setContentCompressionResistancePriority(.required, for: .vertical)
@@ -74,13 +74,13 @@ class WelcomeViewController: UIViewController {
   private let calloutView = WelcomeViewCallout(pointsUp: false)
 
   private let iconView = UIImageView().then {
-    $0.image = #imageLiteral(resourceName: "welcome-view-icon")
+    $0.image = UIImage(named: "welcome-view-icon", in: .module, compatibleWith: nil)!
     $0.contentMode = .scaleAspectFit
     $0.setContentCompressionResistancePriority(.init(rawValue: 100), for: .vertical)
   }
 
   private let iconBackgroundView = UIImageView().then {
-    $0.image = #imageLiteral(resourceName: "welcome-view-icon-background")
+    $0.image = UIImage(named: "welcome-view-icon-background", in: .module, compatibleWith: nil)!
     $0.contentMode = .scaleAspectFit
   }
 
@@ -91,7 +91,7 @@ class WelcomeViewController: UIViewController {
   }
 
   private let bottomImageView = UIImageView().then {
-    $0.image = #imageLiteral(resourceName: "welcome-view-bottom-image")
+    $0.image = UIImage(named: "welcome-view-bottom-image", in: .module, compatibleWith: nil)!
     $0.contentMode = .scaleAspectFill
     $0.setContentHuggingPriority(.required, for: .vertical)
     $0.setContentCompressionResistancePriority(.required, for: .vertical)
@@ -262,7 +262,7 @@ class WelcomeViewController: UIViewController {
 
       topImageView.transform = topTransform
       bottomImageView.transform = bottomTransform
-      iconView.image = #imageLiteral(resourceName: "welcome-view-phone")
+      iconView.image = UIImage(named: "welcome-view-phone", in: .module, compatibleWith: nil)!
       skipButton.alpha = 1.0
       contentContainer.spacing = 0.0
       iconBackgroundView.alpha = 0.0
@@ -288,7 +288,7 @@ class WelcomeViewController: UIViewController {
 
       topImageView.transform = topTransform
       bottomImageView.transform = bottomTransform
-      iconView.image = #imageLiteral(resourceName: "welcome-view-phone")
+      iconView.image = UIImage(named: "welcome-view-phone", in: .module, compatibleWith: nil)!
       contentContainer.spacing = 0.0
       iconBackgroundView.alpha = 0.0
       iconView.snp.remakeConstraints {
@@ -313,7 +313,7 @@ class WelcomeViewController: UIViewController {
 
       topImageView.transform = topTransform
       bottomImageView.transform = bottomTransform
-      iconView.image = #imageLiteral(resourceName: "welcome-view-icon")
+      iconView.image = UIImage(named: "welcome-view-icon", in: .module, compatibleWith: nil)!
       contentContainer.spacing = 0.0
       iconBackgroundView.alpha = 1.0
       iconView.snp.remakeConstraints {
@@ -343,7 +343,7 @@ class WelcomeViewController: UIViewController {
       }
 
       searchView.addButton(
-        icon: #imageLiteral(resourceName: "welcome-view-search-view-generic"),
+        icon: UIImage(named: "welcome-view-search-view-generic", in: .module, compatibleWith: nil)!,
         title: Strings.Onboarding.searchViewEnterWebsiteRowTitle
       ) { [unowned self] in
         self.onEnterCustomWebsite()
@@ -475,80 +475,80 @@ class WelcomeViewController: UIViewController {
     // Canada
     case "CA":
       siteList = [
-        WebsiteRegion(icon: #imageLiteral(resourceName: "welcome-view-search-view-yahoo"), title: "Yahoo", domain: "https://yahoo.com/"),
-        WebsiteRegion(icon: #imageLiteral(resourceName: "welcome-view-search-view-environment-canada"), title: "Environment Canada", domain: "https://weather.gc.ca/"),
-        WebsiteRegion(icon: #imageLiteral(resourceName: "welcome-view-search-view-cdn-tire"), title: "Canadian Tire", domain: "https://canadiantire.ca/"),
+        WebsiteRegion(icon: UIImage(named: "welcome-view-search-view-yahoo", in: .module, compatibleWith: nil)!, title: "Yahoo", domain: "https://yahoo.com/"),
+        WebsiteRegion(icon: UIImage(named: "welcome-view-search-view-environment-canada", in: .module, compatibleWith: nil)!, title: "Environment Canada", domain: "https://weather.gc.ca/"),
+        WebsiteRegion(icon: UIImage(named: "welcome-view-search-view-cdn-tire", in: .module, compatibleWith: nil)!, title: "Canadian Tire", domain: "https://canadiantire.ca/"),
       ]
 
     // United Kingdom
     case "GB":
       siteList = [
-        WebsiteRegion(icon: #imageLiteral(resourceName: "welcome-view-search-view-bbc"), title: "BBC", domain: "https://bbc.co.uk/"),
-        WebsiteRegion(icon: #imageLiteral(resourceName: "welcome-view-search-view-sky"), title: "Sky", domain: "https://sky.com/"),
-        WebsiteRegion(icon: #imageLiteral(resourceName: "welcome-view-search-view-wired"), title: "Wired", domain: "https://wired.com/"),
+        WebsiteRegion(icon: UIImage(named: "welcome-view-search-view-bbc", in: .module, compatibleWith: nil)!, title: "BBC", domain: "https://bbc.co.uk/"),
+        WebsiteRegion(icon: UIImage(named: "welcome-view-search-view-sky", in: .module, compatibleWith: nil)!, title: "Sky", domain: "https://sky.com/"),
+        WebsiteRegion(icon: UIImage(named: "welcome-view-search-view-wired", in: .module, compatibleWith: nil)!, title: "Wired", domain: "https://wired.com/"),
       ]
 
     // Germany
     case "DE":
       siteList = [
-        WebsiteRegion(icon: #imageLiteral(resourceName: "welcome-view-search-view-yahoo"), title: "Yahoo", domain: "https://yahoo.com/"),
-        WebsiteRegion(icon: #imageLiteral(resourceName: "welcome-view-search-view-gmx"), title: "GMX", domain: "https://gmx.net/"),
-        WebsiteRegion(icon: #imageLiteral(resourceName: "welcome-view-search-view-mobilede"), title: "Mobile", domain: "https://mobile.de/"),
+        WebsiteRegion(icon: UIImage(named: "welcome-view-search-view-yahoo", in: .module, compatibleWith: nil)!, title: "Yahoo", domain: "https://yahoo.com/"),
+        WebsiteRegion(icon: UIImage(named: "welcome-view-search-view-gmx", in: .module, compatibleWith: nil)!, title: "GMX", domain: "https://gmx.net/"),
+        WebsiteRegion(icon: UIImage(named: "welcome-view-search-view-mobilede", in: .module, compatibleWith: nil)!, title: "Mobile", domain: "https://mobile.de/"),
       ]
 
     // France
     case "FR":
       siteList = [
-        WebsiteRegion(icon: #imageLiteral(resourceName: "welcome-view-search-view-yahoo"), title: "Yahoo", domain: "https://yahoo.com/"),
-        WebsiteRegion(icon: #imageLiteral(resourceName: "welcome-view-search-view-jdf"), title: "Les Journal des Femmes", domain: "https://journaldesfemmes.fr/"),
-        WebsiteRegion(icon: #imageLiteral(resourceName: "welcome-view-search-view-programme-tv"), title: "Programme TV", domain: "https://programme-tv.net/"),
+        WebsiteRegion(icon: UIImage(named: "welcome-view-search-view-yahoo", in: .module, compatibleWith: nil)!, title: "Yahoo", domain: "https://yahoo.com/"),
+        WebsiteRegion(icon: UIImage(named: "welcome-view-search-view-jdf", in: .module, compatibleWith: nil)!, title: "Les Journal des Femmes", domain: "https://journaldesfemmes.fr/"),
+        WebsiteRegion(icon: UIImage(named: "welcome-view-search-view-programme-tv", in: .module, compatibleWith: nil)!, title: "Programme TV", domain: "https://programme-tv.net/"),
       ]
 
     // India
     case "IN":
       siteList = [
-        WebsiteRegion(icon: #imageLiteral(resourceName: "welcome-view-search-view-hotstar"), title: "Hot Star", domain: "https://hotstar.com/"),
-        WebsiteRegion(icon: #imageLiteral(resourceName: "welcome-view-search-view-cricketbuzz"), title: "Cricket Buzz", domain: "https://cricbuzz.com/"),
-        WebsiteRegion(icon: #imageLiteral(resourceName: "welcome-view-search-view-flipkart"), title: "Flipkart", domain: "https://flipkart.com/"),
+        WebsiteRegion(icon: UIImage(named: "welcome-view-search-view-hotstar", in: .module, compatibleWith: nil)!, title: "Hot Star", domain: "https://hotstar.com/"),
+        WebsiteRegion(icon: UIImage(named: "welcome-view-search-view-cricketbuzz", in: .module, compatibleWith: nil)!, title: "Cricket Buzz", domain: "https://cricbuzz.com/"),
+        WebsiteRegion(icon: UIImage(named: "welcome-view-search-view-flipkart", in: .module, compatibleWith: nil)!, title: "Flipkart", domain: "https://flipkart.com/"),
       ]
 
     // Australia
     case "AU":
       siteList = [
-        WebsiteRegion(icon: #imageLiteral(resourceName: "welcome-view-search-view-news-au"), title: "News", domain: "https://news.com.au/"),
-        WebsiteRegion(icon: #imageLiteral(resourceName: "welcome-view-search-view-gumtree"), title: "Gumtree", domain: "https://gumtree.com.au/"),
-        WebsiteRegion(icon: #imageLiteral(resourceName: "welcome-view-search-view-realestate-au"), title: "Real Estate", domain: "https://realestate.com.au/"),
+        WebsiteRegion(icon: UIImage(named: "welcome-view-search-view-news-au", in: .module, compatibleWith: nil)!, title: "News", domain: "https://news.com.au/"),
+        WebsiteRegion(icon: UIImage(named: "welcome-view-search-view-gumtree", in: .module, compatibleWith: nil)!, title: "Gumtree", domain: "https://gumtree.com.au/"),
+        WebsiteRegion(icon: UIImage(named: "welcome-view-search-view-realestate-au", in: .module, compatibleWith: nil)!, title: "Real Estate", domain: "https://realestate.com.au/"),
       ]
 
     // Ireland
     case "IE":
       siteList = [
-        WebsiteRegion(icon: #imageLiteral(resourceName: "welcome-view-search-view-rte"), title: "RTÉ", domain: "https://rte.ie/"),
-        WebsiteRegion(icon: #imageLiteral(resourceName: "welcome-view-search-view-independent"), title: "Independent", domain: "https://independent.ie/"),
-        WebsiteRegion(icon: #imageLiteral(resourceName: "welcome-view-search-view-donedeal"), title: "DoneDeal", domain: "https://donedeal.ie/"),
+        WebsiteRegion(icon: UIImage(named: "welcome-view-search-view-rte", in: .module, compatibleWith: nil)!, title: "RTÉ", domain: "https://rte.ie/"),
+        WebsiteRegion(icon: UIImage(named: "welcome-view-search-view-independent", in: .module, compatibleWith: nil)!, title: "Independent", domain: "https://independent.ie/"),
+        WebsiteRegion(icon: UIImage(named: "welcome-view-search-view-donedeal", in: .module, compatibleWith: nil)!, title: "DoneDeal", domain: "https://donedeal.ie/"),
       ]
 
     // Japan
     case "JP":
       siteList = [
-        WebsiteRegion(icon: #imageLiteral(resourceName: "faviconYahoo"), title: "Yahoo! JAPAN", domain: "https://m.yahoo.co.jp/"),
-        WebsiteRegion(icon: #imageLiteral(resourceName: "welcome-view-search-view-wired"), title: "Wired(日本版)", domain: "https://wired.jp/"),
-        WebsiteRegion(icon: #imageLiteral(resourceName: "welcome-view-search-view-number-bunshin"), title: "Number Web", domain: "https://number.bunshun.jp/"),
+        WebsiteRegion(icon: UIImage(named: "faviconYahoo", in: .module, compatibleWith: nil)!, title: "Yahoo! JAPAN", domain: "https://m.yahoo.co.jp/"),
+        WebsiteRegion(icon: UIImage(named: "welcome-view-search-view-wired", in: .module, compatibleWith: nil)!, title: "Wired(日本版)", domain: "https://wired.jp/"),
+        WebsiteRegion(icon: UIImage(named: "welcome-view-search-view-number-bunshin", in: .module, compatibleWith: nil)!, title: "Number Web", domain: "https://number.bunshun.jp/"),
       ]
 
     // United States
     case "US":
       siteList = [
-        WebsiteRegion(icon: #imageLiteral(resourceName: "welcome-view-search-view-yahoo"), title: "Yahoo", domain: "https://yahoo.com/"),
-        WebsiteRegion(icon: #imageLiteral(resourceName: "welcome-view-search-view-wired"), title: "Wired", domain: "https://wired.com/"),
-        WebsiteRegion(icon: #imageLiteral(resourceName: "welcome-view-search-view-espn"), title: "ESPN", domain: "https://espn.com/"),
+        WebsiteRegion(icon: UIImage(named: "welcome-view-search-view-yahoo", in: .module, compatibleWith: nil)!, title: "Yahoo", domain: "https://yahoo.com/"),
+        WebsiteRegion(icon: UIImage(named: "welcome-view-search-view-wired", in: .module, compatibleWith: nil)!, title: "Wired", domain: "https://wired.com/"),
+        WebsiteRegion(icon: UIImage(named: "welcome-view-search-view-espn", in: .module, compatibleWith: nil)!, title: "ESPN", domain: "https://espn.com/"),
       ]
 
     default:
       siteList = [
-        WebsiteRegion(icon: #imageLiteral(resourceName: "welcome-view-search-view-yahoo"), title: "Yahoo", domain: "https://yahoo.com/"),
-        WebsiteRegion(icon: #imageLiteral(resourceName: "welcome-view-search-view-wired"), title: "Wired", domain: "https://wired.com/"),
-        WebsiteRegion(icon: #imageLiteral(resourceName: "welcome-view-search-view-espn"), title: "ESPN", domain: "https://espn.com/"),
+        WebsiteRegion(icon: UIImage(named: "welcome-view-search-view-yahoo", in: .module, compatibleWith: nil)!, title: "Yahoo", domain: "https://yahoo.com/"),
+        WebsiteRegion(icon: UIImage(named: "welcome-view-search-view-wired", in: .module, compatibleWith: nil)!, title: "Wired", domain: "https://wired.com/"),
+        WebsiteRegion(icon: UIImage(named: "welcome-view-search-view-espn", in: .module, compatibleWith: nil)!, title: "ESPN", domain: "https://espn.com/"),
       ]
     }
     return siteList

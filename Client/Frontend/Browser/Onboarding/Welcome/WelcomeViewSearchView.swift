@@ -96,7 +96,7 @@ private class SearchEngineButton: RoundInterfaceButton {
 
   private let accessoryView = UIImageView().then {
     $0.contentMode = .center
-    $0.image = #imageLiteral(resourceName: "welcome-view-search-engine-arrow")
+    $0.image = UIImage(named: "welcome-view-search-engine-arrow", in: .module, compatibleWith: nil)!
     $0.isUserInteractionEnabled = false
   }
 

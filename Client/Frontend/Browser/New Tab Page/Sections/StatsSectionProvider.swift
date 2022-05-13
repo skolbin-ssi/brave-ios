@@ -88,7 +88,7 @@ class BraveShieldStatsView: SpringButton {
   }
   
   private let privacyReportLabel = UILabel().then {
-    let image = #imageLiteral(resourceName: "privacy_reports_shield").template
+    let image = UIImage(named: "privacy_reports_shield", in: .module, compatibleWith: nil)!.template
     $0.textColor = .white
     $0.textAlignment = .center
     
@@ -118,7 +118,7 @@ class BraveShieldStatsView: SpringButton {
   override init(frame: CGRect) {
     super.init(frame: frame)
     
-    let image = UIImageView(image: #imageLiteral(resourceName: "privacy_reports_3dots").template)
+    let image = UIImageView(image: UIImage(named: "privacy_reports_3dots", in: .module, compatibleWith: nil)!.template)
     image.tintColor = .white
     
     let background = UIView()
