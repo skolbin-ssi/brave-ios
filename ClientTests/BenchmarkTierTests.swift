@@ -7,7 +7,7 @@ import Foundation
 import XCTest
 import Storage
 
-@testable import Client
+@testable import Brave
 
 class BenchmarkTierTests: XCTestCase {
   typealias Tier = BrowserViewController.BenchmarkTrackerCountTier
