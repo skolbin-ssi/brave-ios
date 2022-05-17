@@ -153,5 +153,8 @@ class MockBraveWalletService: BraveWalletBraveWalletService {
   func resetPermission(_ coin: BraveWallet.CoinType, origin: URLOrigin, account: String, completion: @escaping (Bool) -> Void) {
     completion(false)
   }
+  func isBase58EncodedSolanaPubkey(_ key: String, completion: @escaping (Bool) -> Void) {
+    completion(false)
+  }
 }
 #endif
