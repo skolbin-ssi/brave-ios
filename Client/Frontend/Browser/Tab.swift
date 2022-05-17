@@ -66,7 +66,7 @@ class Tab: NSObject {
 
   var secureContentState: TabSecureContentState = .unknown
 
-  var walletProvider: BraveWalletBraveWalletProvider?
+  var walletProvider: BraveWalletEthereumProvider?
   var walletProviderJS: String?
   var isWalletIconVisible: Bool = false
   var walletKeyringService: BraveWalletKeyringService?

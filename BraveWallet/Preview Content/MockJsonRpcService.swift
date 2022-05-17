@@ -130,6 +130,10 @@ class MockJsonRpcService: BraveWalletJsonRpcService {
   func erc1155TokenBalance(_ contractAddress: String, tokenId: String, accountAddress: String, chainId: String, completion: @escaping (String, BraveWallet.ProviderError, String) -> Void) {
     completion("", .internalError, "")
   }
+  
+  func erc721Metadata(_ contract: String, tokenId: String, chainId: String, completion: @escaping (String, BraveWallet.ProviderError, String) -> Void) {
+    completion("", .internalError, "")
+  }
 }
 
 extension BraveWallet.NetworkInfo {
