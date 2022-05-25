@@ -5,6 +5,7 @@
 
 import UIKit
 import Shared
+import BraveCore
 import BraveShared
 import Combine
 
@@ -33,6 +34,7 @@ class TabTrayController: LoadingViewController {
 
   let tabManager: TabManager
   weak var delegate: TabTrayDelegate?
+  private let openTabsAPI: BraveOpenTabsAPI
 
   private(set) lazy var dataSource =
     DataSource(
@@ -69,8 +71,9 @@ class TabTrayController: LoadingViewController {
     return view.overrideUserInterfaceStyle == .light ? .darkContent : .lightContent
   }
 
-  init(tabManager: TabManager) {
+  init(tabManager: TabManager, openTabsAPI: BraveOpenTabsAPI) {
     self.tabManager = tabManager
+    self.openTabsAPI = openTabsAPI
     super.init(nibName: nil, bundle: nil)
 
     if !UIAccessibility.isReduceMotionEnabled {
@@ -146,6 +149,10 @@ class TabTrayController: LoadingViewController {
       .sink(receiveValue: { [weak self] isPrivateBrowsing in
         self?.updateColors(isPrivateBrowsing)
       })
+    
+    openTabsAPI.getSyncedTabs() { tablist in
+      print("Tab List \(tablist)")
+    }
   }
   
   private func updateColors(_ isPrivateBrowsing: Bool) {
@@ -158,7 +165,6 @@ class TabTrayController: LoadingViewController {
     
     setNeedsStatusBarAppearanceUpdate()
   }
-
 
   private var initialScrollCompleted = false
 
