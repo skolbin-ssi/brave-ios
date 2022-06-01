@@ -237,7 +237,8 @@ class SyncWelcomeViewController: SyncViewController {
       }
 
       self.syncAPI.joinSyncGroup(codeWords: self.syncAPI.getSyncCode(), syncProfileService: self.syncProfileServices)
-      self.syncAPI.syncEnabled = true
+      self.syncAPI.requestSync()
+      self.syncAPI.setSetupComplete()
     }
 
     self.navigationController?.pushViewController(addDevice, animated: true)
@@ -277,6 +278,7 @@ extension SyncWelcomeViewController: SyncPairControllerDelegate {
     }
 
     syncAPI.joinSyncGroup(codeWords: codeWords, syncProfileService: syncProfileServices)
-    syncAPI.syncEnabled = true
+    syncAPI.requestSync()
+    syncAPI.setSetupComplete()
   }
 }

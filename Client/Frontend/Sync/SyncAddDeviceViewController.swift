@@ -106,7 +106,7 @@ class SyncAddDeviceViewController: SyncViewController {
       make.size.equalTo(barcodeSize)
     }
 
-    self.codewordsView.text = syncAPI.getSyncCode()
+    self.codewordsView.text = syncAPI.getTimeLimitedWords(fromWords: syncAPI.getSyncCode())
     self.setupVisuals()
   }
   
@@ -131,6 +131,7 @@ class SyncAddDeviceViewController: SyncViewController {
     modeControl.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
 
     modeControl.selectedSegmentTintColor = UIColor.braveOrange
+    modeControl.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
     stackView.addArrangedSubview(modeControl)
 
     let titleDescriptionStackView = UIStackView()
