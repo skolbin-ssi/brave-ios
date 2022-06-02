@@ -25,6 +25,7 @@ import FeedKit
 import SwiftUI
 import class Combine.AnyCancellable
 import BraveWallet
+import JitsiMeetSDK
 
 private let log = Logger.browserLogger
 
@@ -194,6 +195,11 @@ public class BrowserViewController: UIViewController, BrowserViewControllerDeleg
   private(set) var widgetBookmarksFRC: NSFetchedResultsController<Favorite>?
   var widgetFaviconFetchers: [FaviconFetcher] = []
   let deviceCheckClient: DeviceCheckClient?
+  
+  // Brave Talk native implementations
+  var pipViewCoordinator: PiPViewCoordinator?
+  var jitsiMeetView: JitsiMeetView?
+  var isBraveTalkInPiPMode: Bool = false
 
   public init(
     profile: Profile,
@@ -952,6 +958,9 @@ public class BrowserViewController: UIViewController, BrowserViewControllerDeleg
     statusBarOverlay.snp.remakeConstraints { make in
       make.top.left.right.equalTo(self.view)
       make.bottom.equalTo(view.safeArea.top)
+    }
+    if !isBraveTalkInPiPMode {
+      jitsiMeetView?.frame = view.window?.bounds ?? view.bounds
     }
   }
 
@@ -2207,7 +2216,11 @@ extension BrowserViewController: TabDelegate {
     tab.addContentScript(
       BraveTalkScriptHandler(
         tab: tab,
-        rewards: rewards),
+        rewards: rewards,
+        launchNativeBraveTalk: { [weak self] options in
+          self?.launchNativeBraveTalk(with: options)
+        }
+      ),
       name: BraveTalkScriptHandler.name(), contentWorld: .page)
 
     tab.addContentScript(ResourceDownloadManager(tab: tab), name: ResourceDownloadManager.name(), contentWorld: .defaultClient)
