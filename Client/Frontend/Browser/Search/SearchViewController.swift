@@ -409,11 +409,12 @@ public class SearchViewController: SiteTableViewController, LoaderListener {
   }
   
   private func isBraveSearchPrompt(for indexPath: IndexPath) -> Bool {
+    let index = traitCollection.horizontalSizeClass == .regular && UIDevice.current.orientation.isPortrait ? 4 : 2
     switch suggestions.count {
-    case 0...2:
+    case 0...index:
       return indexPath.row == suggestions.count && braveSearchPromotionAvailable
     default:
-      return indexPath.row == 2 && braveSearchPromotionAvailable
+      return indexPath.row == index && braveSearchPromotionAvailable
     }
   }
   
