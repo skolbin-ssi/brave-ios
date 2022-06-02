@@ -73,6 +73,7 @@ let package = Package(
         "XCGLogger",
         "BrowserIntentsModels",
         "BraveWidgetsModels",
+        "JitsiMeet",
         .product(name: "Lottie", package: "lottie-ios"),
         .product(name: "Collections", package: "swift-collections"),
       ],
