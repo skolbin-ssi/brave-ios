@@ -401,6 +401,15 @@ class UserScriptManager {
                         forMainFrameOnly: true,
                         in: .page)
   }()
+  
+  private let walletProviderCoreScript: String? = {
+    guard let path = Bundle.current.path(forResource: "BraveCoreWallet", ofType: "js"),
+          let source = try? String(contentsOfFile: path) else {
+      return nil
+    }
+    
+    return source
+  }()
 
   private var walletProviderJS: String?
     
@@ -464,7 +473,7 @@ class UserScriptManager {
            tab?.isPrivate == false,
            Preferences.Wallet.WalletType(rawValue: Preferences.Wallet.defaultWallet.value) == .brave {
           $0.addUserScript(script)
-          if let providerJS = walletProviderJS {
+          if let providerJS = walletProviderCoreScript {
             $0.addUserScript(.init(source: providerJS, injectionTime: .atDocumentStart, forMainFrameOnly: true, in: .page))
           }
         }
